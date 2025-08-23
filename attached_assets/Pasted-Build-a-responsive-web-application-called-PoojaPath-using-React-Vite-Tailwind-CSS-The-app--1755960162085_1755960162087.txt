@@ -1,0 +1,47 @@
+Build a responsive web application called "PoojaPath" using React + Vite + Tailwind CSS.  
+The app structure should include the following pages and components:
+
+1. Landing Page:
+   - Navbar with links: Home, Poojas, Kits, About, Contact, Dashboard
+   - Hero section with a banner image (temple/diya background) + tagline "Book Pandit Ji & Puja Kits Online"
+   - Pooja Cards (Grih Pravesh, Satyanarayan Katha, Vivah Puja, Navratri Puja, etc.) with "Book Now" button
+   - About section with description about the platform
+   - Contact section with form (name, email, message)
+
+2. Authentication:
+   - Simple login page where user enters their name → after login redirect to Dashboard
+   - Store logged-in user in localStorage for session persistence
+
+3. Dashboard (protected route):
+   - Show welcome message with user name
+   - Tabs/sections for:
+     a) Bookings → list of upcoming and past puja bookings
+     b) Orders → list of puja kit orders
+     c) Browse Pandits → cards with Pandit Ji profiles (name, rating, experience, available timings)
+     d) Browse Poojas → list of puja types with booking option
+     e) Browse Kits → cards of puja kits with “Add to Cart” button
+
+4. Booking Flow:
+   - /poojas → Click "Book" → /book/:poojaName
+   - Booking form → Name, Date, Time, Address → Confirm Booking → Save booking in localStorage
+   - Show confirmation in Dashboard → Bookings
+
+5. Cart + Kits Flow:
+   - /kits → User can add kits to cart
+   - Cart page with list of added kits, total price, and "Checkout" button
+   - Checkout → Create order → Save in localStorage
+   - Show confirmation in Dashboard → Orders
+
+6. Styling:
+   - Use TailwindCSS for responsive and attractive design
+   - Cards should have rounded corners, shadow, hover effect
+   - Mobile-friendly layout with hamburger menu for navbar
+   - Colors: saffron/orange + white + subtle gradients for spiritual vibe
+
+7. Future-ready:
+   - Keep structure scalable so later we can add: Pandit availability calendar, ratings/reviews, search filters, payment gateway.
+
+Make sure:
+- Each component (Navbar, Hero, Card, BookingForm, Cart, Dashboard, etc.) is separate and reusable
+- Routes are managed using react-router-dom
+- State (bookings, orders, cart) managed using React Context or localStorage
