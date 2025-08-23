@@ -199,7 +199,7 @@ export default function Dashboard() {
 
         {activeTab === "pandits" && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pandits.map((pandit) => (
+            {[...pandits, ...state.registeredPandits].map((pandit) => (
               <Card key={pandit.id} className="hover:shadow-xl transition-shadow" data-testid={`pandit-card-${pandit.id}`}>
                 <div className="relative overflow-hidden">
                   <img

@@ -17,6 +17,7 @@ export default function Navbar() {
     { href: "/kits", label: "Kits" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
+    { href: "/pandit-register", label: "Join as Pandit" },
   ];
 
   const cartItemCount = state.cart.reduce((total, item) => total + item.quantity, 0);

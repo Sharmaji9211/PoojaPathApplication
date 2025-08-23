@@ -37,7 +37,7 @@ export default function Kits() {
     });
   };
 
-  const categories = [...new Set(kits.map(kit => kit.category))];
+  const categories = Array.from(new Set(kits.map(kit => kit.category)));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-saffron-50 to-white py-8 px-4 sm:px-6 lg:px-8">

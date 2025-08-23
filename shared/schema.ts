@@ -83,6 +83,7 @@ export const cartItemSchema = z.object({
 // Insert schemas
 export const insertBookingSchema = bookingSchema.omit({ id: true, createdAt: true });
 export const insertOrderSchema = orderSchema.omit({ id: true, createdAt: true });
+export const insertPanditSchema = panditSchema.omit({ id: true, rating: true, reviews: true });
 
 // Types
 export type User = z.infer<typeof userSchema>;
@@ -94,3 +95,4 @@ export type Order = z.infer<typeof orderSchema>;
 export type CartItem = z.infer<typeof cartItemSchema>;
 export type InsertBooking = z.infer<typeof insertBookingSchema>;
 export type InsertOrder = z.infer<typeof insertOrderSchema>;
+export type InsertPandit = z.infer<typeof insertPanditSchema>;

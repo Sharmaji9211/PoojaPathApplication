@@ -13,6 +13,7 @@ import Booking from "@/pages/Booking";
 import Cart from "@/pages/Cart";
 import Poojas from "@/pages/Poojas";
 import Kits from "@/pages/Kits";
+import PanditRegister from "@/pages/PanditRegister";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/poojas" component={Poojas} />
         <Route path="/kits" component={Kits} />
         <Route path="/cart" component={Cart} />
+        <Route path="/pandit-register" component={PanditRegister} />
         <Route path="/dashboard">
           <ProtectedRoute>
             <Dashboard />

@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect, ReactNode } from "react";
-import type { User, Booking, Order, CartItem, Pooja, Kit } from "@shared/schema";
+import type { User, Booking, Order, CartItem, Pooja, Kit, Pandit } from "@shared/schema";
 
 interface AppState {
   user: User | null;
@@ -7,6 +7,7 @@ interface AppState {
   orders: Order[];
   cart: CartItem[];
   selectedPooja: Pooja | null;
+  registeredPandits: Pandit[];
 }
 
 type AppAction =
@@ -18,6 +19,7 @@ type AppAction =
   | { type: "UPDATE_CART_QUANTITY"; payload: { id: string; quantity: number } }
   | { type: "CLEAR_CART" }
   | { type: "SET_SELECTED_POOJA"; payload: Pooja }
+  | { type: "ADD_PANDIT_REGISTRATION"; payload: Pandit }
   | { type: "LOAD_PERSISTED_DATA"; payload: Partial<AppState> };
 
 const initialState: AppState = {
@@ -26,6 +28,7 @@ const initialState: AppState = {
   orders: [],
   cart: [],
   selectedPooja: null,
+  registeredPandits: [],
 };
 
 function appReducer(state: AppState, action: AppAction): AppState {
@@ -68,6 +71,8 @@ function appReducer(state: AppState, action: AppAction): AppState {
       return { ...state, cart: [] };
     case "SET_SELECTED_POOJA":
       return { ...state, selectedPooja: action.payload };
+    case "ADD_PANDIT_REGISTRATION":
+      return { ...state, registeredPandits: [...state.registeredPandits, action.payload] };
     case "LOAD_PERSISTED_DATA":
       return { ...state, ...action.payload };
     default:
@@ -89,6 +94,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const savedBookings = localStorage.getItem("poojaPathBookings");
     const savedOrders = localStorage.getItem("poojaPathOrders");
     const savedCart = localStorage.getItem("poojaPathCart");
+    const savedPandits = localStorage.getItem("poojaPathPandits");
 
     const persistedData: Partial<AppState> = {};
 
@@ -124,6 +130,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    if (savedPandits) {
+      try {
+        persistedData.registeredPandits = JSON.parse(savedPandits);
+      } catch (e) {
+        console.error("Failed to parse saved pandits:", e);
+      }
+    }
+
     if (Object.keys(persistedData).length > 0) {
       dispatch({ type: "LOAD_PERSISTED_DATA", payload: persistedData });
     }
@@ -149,6 +163,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     localStorage.setItem("poojaPathCart", JSON.stringify(state.cart));
   }, [state.cart]);
+
+  useEffect(() => {
+    localStorage.setItem("poojaPathPandits", JSON.stringify(state.registeredPandits));
+  }, [state.registeredPandits]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
