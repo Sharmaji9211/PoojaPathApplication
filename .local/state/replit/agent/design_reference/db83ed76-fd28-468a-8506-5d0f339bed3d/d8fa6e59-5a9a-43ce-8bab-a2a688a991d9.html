@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoojaPath - Book Pandit Ji & Puja Kits Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#FFF8F0',
+                            100: '#FFF0E0',
+                            300: '#FFCC80',
+                            500: '#FF8C42',
+                            600: '#FF7A00',
+                            700: '#E65722',
+                            900: '#B8441A'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="font-inter bg-gradient-to-br from-saffron-50 to-white min-h-screen">
+    <!-- @COMPONENT: Navigation [responsive navbar with mobile hamburger] -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-saffron-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-saffron-500 to-saffron-700 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 8.89 10L12 27l1.11-.259C18.16 26.73 22 22.55 22 17V7L12 2zm0 2.236L20 7.618v9.382c0 4.152-2.88 7.531-7 8.236V4.236z"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-saffron-600 to-saffron-700 bg-clip-text text-transparent">PoojaPath</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-saffron-600 transition-colors font-medium" data-page="home">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-saffron-600 transition-colors font-medium" data-page="poojas">Poojas</a>
+                    <a href="#" class="text-gray-700 hover:text-saffron-600 transition-colors font-medium" data-page="kits">Kits</a>
+                    <a href="#" class="text-gray-700 hover:text-saffron-600 transition-colors font-medium" data-page="about">About</a>
+                    <a href="#" class="text-gray-700 hover:text-saffron-600 transition-colors font-medium" data-page="contact">Contact</a>
+                    <button class="bg-gradient-to-r from-saffron-500 to-saffron-600 text-white px-4 py-2 rounded-lg hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-medium" data-page="login">Login</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-saffron-50" id="mobileMenuBtn">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-saffron-100">
+                    <a href="#" class="block px-3 py-2 text-gray-700 hover:text-saffron-600 hover:bg-saffron-50 rounded-md transition-colors" data-page="home">Home</a>
+                    <a href="#" class="block px-3 py-2 text-gray-700 hover:text-saffron-600 hover:bg-saffron-50 rounded-md transition-colors" data-page="poojas">Poojas</a>
+                    <a href="#" class="block px-3 py-2 text-gray-700 hover:text-saffron-600 hover:bg-saffron-50 rounded-md transition-colors" data-page="kits">Kits</a>
+                    <a href="#" class="block px-3 py-2 text-gray-700 hover:text-saffron-600 hover:bg-saffron-50 rounded-md transition-colors" data-page="about">About</a>
+                    <a href="#" class="block px-3 py-2 text-gray-700 hover:text-saffron-600 hover:bg-saffron-50 rounded-md transition-colors" data-page="contact">Contact</a>
+                    <button class="w-full text-left px-3 py-2 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white rounded-md hover:from-saffron-600 hover:to-saffron-700 transition-all" data-page="login">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- Main Content Container -->
+    <main id="main-content">
+
+        <!-- @COMPONENT: HomePage [landing page with hero and cards] -->
+        <div id="home-page">
+            <!-- Hero Section -->
+            <section class="relative py-20 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <div class="space-y-4">
+                                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                                    <span class="bg-gradient-to-r from-saffron-600 via-saffron-500 to-orange-500 bg-clip-text text-transparent">Book Pandit Ji</span>
+                                    <br>
+                                    <span class="text-gray-800">& Puja Kits Online</span>
+                                </h1>
+                                <p class="text-xl text-gray-600 leading-relaxed">Connect with verified pandits and get authentic puja kits delivered to your doorstep. Experience traditional spirituality with modern convenience.</p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button class="bg-gradient-to-r from-saffron-500 to-saffron-600 text-white px-8 py-4 rounded-xl hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg" data-page="poojas">Explore Poojas</button>
+                                <button class="border-2 border-saffron-500 text-saffron-600 px-8 py-4 rounded-xl hover:bg-saffron-50 transition-all font-semibold text-lg" data-page="kits">Browse Kits</button>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <!-- Beautiful Indian temple with golden lighting and diyas -->
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Beautiful Indian temple with golden lighting" class="rounded-2xl shadow-2xl w-full h-auto" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-saffron-900/20 to-transparent rounded-2xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Poojas Section -->
+            <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white/50">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Poojas</h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Choose from our curated selection of traditional poojas performed by experienced pandits</p>
+                    </div>
+
+                    <!-- @MAP: poojas.map(pooja => ( -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden group">
+                            <!-- Hindu home blessing ceremony setup with flowers and diyas -->
+                            <img src="https://pixabay.com/get/g338e9a7f5402f3d2d348a78ba9d9d0f0ffc1db369a44687186172234838722685318f6b5587a47aeed974f6b0a450c9daa1dc98cd9ffbdaafab5286e4242cbcc_1280.jpg" alt="Grih Pravesh puja setup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Grih Pravesh</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Home blessing ceremony for new beginnings</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold" data-mock="true">₹2,500</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="grih-pravesh">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden group">
+                            <!-- Traditional Satyanarayan puja altar with sacred items -->
+                            <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Satyanarayan Katha puja setup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Satyanarayan Katha</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Complete puja with katha recitation</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold" data-mock="true">₹3,000</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="satyanarayan-katha">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden group">
+                            <!-- Beautiful wedding ceremony with marigold flowers and sacred fire -->
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Vivah Puja ceremony setup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Vivah Puja</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Sacred wedding ceremony rituals</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold" data-mock="true">₹5,000</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="vivah-puja">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden group">
+                            <!-- Navratri celebration with goddess statue and colorful decorations -->
+                            <img src="https://pixabay.com/get/gcedf1c6aa1e299df5d47fb8c19d6757b20514c68b4cff79e4d315d69b596eaf949b02ac40ffc313844a9e73239bfc13a8f9ed3c05dd582a62a9d00ae4e6b1b35_1280.jpg" alt="Navratri Puja decorations" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Navratri Puja</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Nine-day goddess worship ceremony</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold" data-mock="true">₹4,500</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="navratri-puja">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-16 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <!-- Experienced Hindu priest performing puja ritual -->
+                            <img src="https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="Hindu priest performing puja ritual" class="rounded-2xl shadow-xl" />
+                        </div>
+                        <div class="space-y-6">
+                            <h2 class="text-3xl font-bold text-gray-900">About PoojaPath</h2>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                PoojaPath bridges the gap between traditional spirituality and modern convenience. We connect you with verified, experienced pandits who bring authentic religious ceremonies to your home.
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Our mission is to make spiritual practices accessible to everyone, whether you're celebrating life's milestones or seeking divine blessings for new beginnings.
+                            </p>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center p-4 bg-saffron-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-saffron-600" data-mock="true">500+</div>
+                                    <div class="text-gray-600">Verified Pandits</div>
+                                </div>
+                                <div class="text-center p-4 bg-saffron-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-saffron-600" data-mock="true">10,000+</div>
+                                    <div class="text-gray-600">Happy Customers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-saffron-50 to-orange-50">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                        <p class="text-xl text-gray-600">Have questions? We're here to help you plan your perfect puja ceremony</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <form class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" placeholder="Enter your full name" data-validation="required" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" placeholder="Enter your email" data-validation="required,email" />
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors resize-none" placeholder="Tell us how we can help you..." data-validation="required"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <button type="submit" class="w-full bg-gradient-to-r from-saffron-500 to-saffron-600 text-white py-4 rounded-lg hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg" data-event="click:submitContact">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- @END_COMPONENT: HomePage -->
+
+        <!-- @COMPONENT: LoginPage [simple authentication form] -->
+        <div id="login-page" class="hidden min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-md w-full space-y-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-saffron-500 to-saffron-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.739 8.89 10L12 27l1.11-.259C18.16 26.73 22 22.55 22 17V7L12 2zm0 2.236L20 7.618v9.382c0 4.152-2.88 7.531-7 8.236V4.236z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900">Welcome to PoojaPath</h2>
+                    <p class="mt-2 text-gray-600">Enter your name to access your dashboard</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <form class="space-y-6" id="loginForm">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="userName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" placeholder="Enter your full name" data-validation="required" />
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-saffron-500 to-saffron-600 text-white py-4 rounded-lg hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg">Access Dashboard</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: LoginPage -->
+
+        <!-- @COMPONENT: Dashboard [protected route with tabs] -->
+        <div id="dashboard-page" class="hidden py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- Welcome Header -->
+                <div class="bg-gradient-to-r from-saffron-500 to-saffron-600 rounded-2xl p-8 mb-8 text-white">
+                    <h1 class="text-3xl font-bold mb-2">Welcome back, <span id="welcomeUserName" data-bind="user.name" data-mock="true">Rahul Sharma</span>!</h1>
+                    <p class="text-saffron-100">Manage your bookings, orders, and explore our services</p>
+                </div>
+
+                <!-- Dashboard Tabs -->
+                <div class="mb-8">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-8 overflow-x-auto">
+                            <button class="dashboard-tab active border-b-2 border-saffron-500 text-saffron-600 py-4 px-2 text-sm font-medium whitespace-nowrap" data-tab="bookings">My Bookings</button>
+                            <button class="dashboard-tab border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-2 text-sm font-medium whitespace-nowrap" data-tab="orders">My Orders</button>
+                            <button class="dashboard-tab border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-2 text-sm font-medium whitespace-nowrap" data-tab="pandits">Browse Pandits</button>
+                            <button class="dashboard-tab border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-2 text-sm font-medium whitespace-nowrap" data-tab="poojas">Browse Poojas</button>
+                            <button class="dashboard-tab border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-2 text-sm font-medium whitespace-nowrap" data-tab="kits">Browse Kits</button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Tab Contents -->
+                <!-- @STATE: activeTab:string = "bookings" -->
+
+                <!-- Bookings Tab -->
+                <div id="bookings-tab" class="tab-content">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Upcoming Bookings -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                                <svg class="w-5 h-5 text-saffron-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Upcoming Bookings
+                            </h3>
+                            
+                            <!-- @MAP: upcomingBookings.map(booking => ( -->
+                            <div class="space-y-4">
+                                <div class="border border-saffron-100 rounded-lg p-4 hover:bg-saffron-50 transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-900" data-mock="true">Satyanarayan Katha</h4>
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Confirmed</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-1" data-mock="true">Date: March 15, 2024</p>
+                                    <p class="text-sm text-gray-600 mb-2" data-mock="true">Time: 10:00 AM</p>
+                                    <p class="text-sm text-gray-600" data-mock="true">Address: 123 Main Street, Mumbai</p>
+                                </div>
+
+                                <div class="border border-saffron-100 rounded-lg p-4 hover:bg-saffron-50 transition-colors">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-900" data-mock="true">Grih Pravesh</h4>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Pending</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-1" data-mock="true">Date: March 20, 2024</p>
+                                    <p class="text-sm text-gray-600 mb-2" data-mock="true">Time: 11:30 AM</p>
+                                    <p class="text-sm text-gray-600" data-mock="true">Address: 456 Park Avenue, Delhi</p>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+
+                        <!-- Past Bookings -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                                <svg class="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                </svg>
+                                Past Bookings
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-900" data-mock="true">Navratri Puja</h4>
+                                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Completed</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-1" data-mock="true">Date: February 28, 2024</p>
+                                    <p class="text-sm text-gray-600" data-mock="true">Rating: ⭐⭐⭐⭐⭐</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="orders-tab" class="tab-content hidden">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <svg class="w-5 h-5 text-saffron-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                            Recent Orders
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="border border-saffron-100 rounded-lg p-4 hover:bg-saffron-50 transition-colors">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="font-semibold text-gray-900" data-mock="true">Complete Puja Kit - Satyanarayan</h4>
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Shipped</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1" data-mock="true">Order #PK001</p>
+                                <p class="text-sm text-gray-600 mb-2" data-mock="true">Amount: ₹1,500</p>
+                                <p class="text-sm text-gray-600" data-mock="true">Expected Delivery: March 12, 2024</p>
+                            </div>
+
+                            <div class="border border-saffron-100 rounded-lg p-4 hover:bg-saffron-50 transition-colors">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="font-semibold text-gray-900" data-mock="true">Diya Set & Incense Bundle</h4>
+                                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Delivered</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1" data-mock="true">Order #PK002</p>
+                                <p class="text-sm text-gray-600 mb-2" data-mock="true">Amount: ₹750</p>
+                                <p class="text-sm text-gray-600" data-mock="true">Delivered on: March 5, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pandits Tab -->
+                <div id="pandits-tab" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- @MAP: pandits.map(pandit => ( -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <!-- Portrait of experienced Hindu priest with traditional attire -->
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200" alt="Pandit Raj Kumar - experienced priest" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Pandit Raj Kumar</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <span data-mock="true">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <span class="text-sm text-gray-600 ml-2" data-mock="true">(4.9/5 • 150 reviews)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2" data-mock="true">Experience: 15 years</p>
+                                <p class="text-sm text-gray-600 mb-4" data-mock="true">Specializes in: Vedic rituals, Home ceremonies</p>
+                                <p class="text-sm text-saffron-600 font-medium mb-4" data-mock="true">Available: Mon-Fri 9AM-5PM</p>
+                                <button class="w-full bg-saffron-500 text-white py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:selectPandit" data-pandit-id="raj-kumar">Select Pandit</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <!-- Portrait of wise elderly Hindu priest with kind expression -->
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200" alt="Pandit Suresh Sharma - wise elderly priest" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Pandit Suresh Sharma</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <span data-mock="true">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <span class="text-sm text-gray-600 ml-2" data-mock="true">(4.8/5 • 200 reviews)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2" data-mock="true">Experience: 25 years</p>
+                                <p class="text-sm text-gray-600 mb-4" data-mock="true">Specializes in: Wedding ceremonies, Katha</p>
+                                <p class="text-sm text-saffron-600 font-medium mb-4" data-mock="true">Available: All days 8AM-6PM</p>
+                                <button class="w-full bg-saffron-500 text-white py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:selectPandit" data-pandit-id="suresh-sharma">Select Pandit</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <!-- Portrait of middle-aged Hindu priest in traditional clothing -->
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200" alt="Pandit Ashok Gupta - middle-aged priest" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Pandit Ashok Gupta</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <span data-mock="true">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <span class="text-sm text-gray-600 ml-2" data-mock="true">(4.7/5 • 120 reviews)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2" data-mock="true">Experience: 12 years</p>
+                                <p class="text-sm text-gray-600 mb-4" data-mock="true">Specializes in: Festival pujas, Grih Pravesh</p>
+                                <p class="text-sm text-saffron-600 font-medium mb-4" data-mock="true">Available: Weekends 10AM-4PM</p>
+                                <button class="w-full bg-saffron-500 text-white py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:selectPandit" data-pandit-id="ashok-gupta">Select Pandit</button>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+
+                <!-- Poojas Tab -->
+                <div id="poojas-tab" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Hindu home blessing ceremony with flowers and sacred items -->
+                            <img src="https://pixabay.com/get/gdb0524c62d1e213aaf2f9b9fa9d4765af8c746bc5bbf557069812647cab0c76affbf212c9f8fb6bada8389e2717430e165036695ea11a593566dc65117c26945_1280.jpg" alt="Grih Pravesh puja ceremony" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Grih Pravesh</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Home blessing ceremony for new beginnings and prosperity</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold text-lg" data-mock="true">₹2,500</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="grih-pravesh">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Durga Puja celebration with beautiful goddess statue -->
+                            <img src="https://pixabay.com/get/gb65f9f35a2c4406554c5d5d14fd5d01bd4e4c06de28b4362eb69694220a41e1feb8dc328695c0e1a5a53abf94a8b43b75c46acc171b2f3cb7fadf1575ecd20de_1280.jpg" alt="Durga Puja ceremony setup" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Durga Puja</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Divine mother worship for strength and protection</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold text-lg" data-mock="true">₹3,500</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="durga-puja">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Ganesh Chaturthi celebration with decorated idol -->
+                            <img src="https://pixabay.com/get/g81c35b695f4d62840dcafaf72ef30ef3c5ae044e21d13964a31ddf1d5287a867e4e38ba352d498c986969c378108ea77ddf5439de277a883077368045916a1f9_1280.jpg" alt="Ganesh Chaturthi celebration setup" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Ganesh Chaturthi</h3>
+                                <p class="text-gray-600 mb-4" data-mock="true">Lord Ganesha worship for removing obstacles</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-saffron-600 font-semibold text-lg" data-mock="true">₹2,200</span>
+                                    <button class="bg-saffron-500 text-white px-4 py-2 rounded-lg hover:bg-saffron-600 transition-colors" data-event="click:bookPooja" data-pooja="ganesh-chaturthi">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kits Tab -->
+                <div id="kits-tab" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- @MAP: puja_kits.map(kit => ( -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Complete puja kit with brass items, diyas, and sacred materials -->
+                            <img src="https://pixabay.com/get/g2aa8b7aec75893fb861f99920395e03486ea501cb6b8ffcc4c21ddfb9eadf01d6ec5b5525d17c9f8895db9b7978f77347532cdb9d4fe995c32857d550bba3c7a_1280.jpg" alt="Complete puja kit with brass items and diyas" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Complete Puja Kit</h3>
+                                <p class="text-gray-600 mb-3" data-mock="true">Everything needed for daily worship - brass items, diyas, incense</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-saffron-600 font-bold text-xl" data-mock="true">₹1,500</span>
+                                    <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">In Stock</span>
+                                </div>
+                                <button class="w-full bg-saffron-500 text-white py-3 rounded-lg hover:bg-saffron-600 transition-colors transform hover:scale-105 font-medium" data-event="click:addToCart" data-kit-id="complete-puja">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Diwali decoration kit with colorful rangoli and diyas -->
+                            <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Diwali decoration kit with rangoli and diyas" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Diwali Special Kit</h3>
+                                <p class="text-gray-600 mb-3" data-mock="true">Festival of lights celebration kit with decorative diyas</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-saffron-600 font-bold text-xl" data-mock="true">₹800</span>
+                                    <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">In Stock</span>
+                                </div>
+                                <button class="w-full bg-saffron-500 text-white py-3 rounded-lg hover:bg-saffron-600 transition-colors transform hover:scale-105 font-medium" data-event="click:addToCart" data-kit-id="diwali-special">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Premium incense and aromatherapy collection -->
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Premium incense and aromatherapy collection" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Premium Incense Set</h3>
+                                <p class="text-gray-600 mb-3" data-mock="true">Hand-rolled incense sticks with natural fragrances</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-saffron-600 font-bold text-xl" data-mock="true">₹450</span>
+                                    <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">In Stock</span>
+                                </div>
+                                <button class="w-full bg-saffron-500 text-white py-3 rounded-lg hover:bg-saffron-600 transition-colors transform hover:scale-105 font-medium" data-event="click:addToCart" data-kit-id="premium-incense">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-2">
+                            <!-- Sacred rudraksha beads and prayer mala collection -->
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Sacred rudraksha beads and prayer mala" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2" data-mock="true">Rudraksha Mala Set</h3>
+                                <p class="text-gray-600 mb-3" data-mock="true">Authentic rudraksha beads for meditation and prayers</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-saffron-600 font-bold text-xl" data-mock="true">₹1,200</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded">Limited</span>
+                                </div>
+                                <button class="w-full bg-saffron-500 text-white py-3 rounded-lg hover:bg-saffron-600 transition-colors transform hover:scale-105 font-medium" data-event="click:addToCart" data-kit-id="rudraksha-mala">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Dashboard -->
+
+        <!-- @COMPONENT: BookingForm [puja booking flow] -->
+        <div id="booking-page" class="hidden py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">Book Your Puja</h2>
+                        <p class="text-gray-600">Fill in the details to schedule your ceremony</p>
+                    </div>
+
+                    <form class="space-y-6" id="bookingForm">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Puja Type</label>
+                            <input type="text" id="poojaType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors bg-gray-50" readonly data-bind="selectedPooja.name" />
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="customerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" placeholder="Enter your full name" data-validation="required" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phoneNumber" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" placeholder="Enter your phone" data-validation="required" />
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Date</label>
+                                <input type="date" id="poojaDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" data-validation="required" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+                                <select id="poojaTime" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors" data-validation="required">
+                                    <option value="">Select time</option>
+                                    <option value="06:00">6:00 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Complete Address</label>
+                            <textarea id="address" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors resize-none" placeholder="Enter your complete address where the puja will be performed" data-validation="required"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Special Requirements (Optional)</label>
+                            <textarea id="specialRequirements" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500 focus:border-transparent transition-colors resize-none" placeholder="Any special requirements or notes for the pandit"></textarea>
+                        </div>
+
+                        <div class="border-t pt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-lg font-semibold text-gray-900">Total Amount:</span>
+                                <span class="text-2xl font-bold text-saffron-600" id="totalAmount" data-bind="selectedPooja.price" data-mock="true">₹2,500</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button type="button" class="flex-1 border-2 border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium" data-page="dashboard">Back to Dashboard</button>
+                            <button type="submit" class="flex-1 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white py-3 rounded-lg hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-semibold">Confirm Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: BookingForm -->
+
+        <!-- @COMPONENT: CartPage [shopping cart for puja kits] -->
+        <div id="cart-page" class="hidden py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900">Shopping Cart</h2>
+                        <span class="bg-saffron-100 text-saffron-800 px-3 py-1 rounded-full text-sm font-medium" id="cartItemCount" data-bind="cart.itemCount" data-mock="true">3 items</span>
+                    </div>
+
+                    <!-- @STATE: cartItems:array = [] -->
+                    <!-- @MAP: cartItems.map(item => ( -->
+                    <div class="space-y-6" id="cartItems">
+                        <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <!-- Complete puja kit thumbnail -->
+                            <img src="https://pixabay.com/get/gfb96154ee1a7306369ff5d62cdf854fb435b288cc20ef9a36f12633be3bf88d3cdab942dbbdc83511d4e610bfe7d8e480d710cec4eb893758cec1bb236c51440_1280.jpg" alt="Complete puja kit" class="w-16 h-16 object-cover rounded-lg" />
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900" data-mock="true">Complete Puja Kit</h3>
+                                <p class="text-sm text-gray-600" data-mock="true">Everything needed for daily worship</p>
+                                <p class="text-saffron-600 font-semibold" data-mock="true">₹1,500</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" data-event="click:decreaseQuantity">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                    </svg>
+                                </button>
+                                <span class="w-8 text-center font-medium" data-mock="true">1</span>
+                                <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" data-event="click:increaseQuantity">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="text-red-500 hover:text-red-700 p-2" data-event="click:removeFromCart">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                            <!-- Diwali kit thumbnail -->
+                            <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="Diwali special kit" class="w-16 h-16 object-cover rounded-lg" />
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900" data-mock="true">Diwali Special Kit</h3>
+                                <p class="text-sm text-gray-600" data-mock="true">Festival of lights celebration</p>
+                                <p class="text-saffron-600 font-semibold" data-mock="true">₹800</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" data-event="click:decreaseQuantity">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                    </svg>
+                                </button>
+                                <span class="w-8 text-center font-medium" data-mock="true">2</span>
+                                <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" data-event="click:increaseQuantity">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="text-red-500 hover:text-red-700 p-2" data-event="click:removeFromCart">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+
+                    <!-- Cart Summary -->
+                    <div class="border-t mt-8 pt-8">
+                        <div class="bg-gradient-to-br from-saffron-50 to-orange-50 rounded-xl p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Subtotal</span>
+                                    <span class="font-semibold" data-bind="cart.subtotal" data-mock="true">₹3,100</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Delivery Charges</span>
+                                    <span class="font-semibold" data-bind="cart.delivery" data-mock="true">₹100</span>
+                                </div>
+                                <div class="flex justify-between items-center text-lg font-bold border-t pt-4">
+                                    <span>Total</span>
+                                    <span class="text-saffron-600" data-bind="cart.total" data-mock="true">₹3,200</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                            <button class="flex-1 border-2 border-saffron-500 text-saffron-600 py-3 rounded-lg hover:bg-saffron-50 transition-colors font-medium" data-page="dashboard">Continue Shopping</button>
+                            <button class="flex-1 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white py-3 rounded-lg hover:from-saffron-600 hover:to-saffron-700 transition-all transform hover:scale-105 font-semibold" data-event="click:proceedToCheckout">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: CartPage -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-saffron-500 to-saffron-700 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.739 8.89 10L12 27l1.11-.259C18.16 26.73 22 22.55 22 17V7L12 2zm0 2.236L20 7.618v9.382c0 4.152-2.88 7.531-7 8.236V4.236z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white">PoojaPath</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting tradition with convenience through authentic spiritual services.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Puja Booking</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Pandit Services</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Puja Kits</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Home Delivery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-saffron-400 transition-colors">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-saffron-600 transition-colors">
+                            <span class="text-xs">f</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-saffron-600 transition-colors">
+                            <span class="text-xs">t</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-saffron-600 transition-colors">
+                            <span class="text-xs">i</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 PoojaPath. All rights reserved. Bringing spirituality to your doorstep.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            'use strict';
+            
+            // App state
+            let appState = {
+                currentUser: null,
+                currentPage: 'home',
+                cart: [],
+                bookings: [],
+                orders: []
+            };
+
+            // DOM elements
+            const mainContent = document.getElementById('main-content');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Page management
+            function showPage(pageName) {
+                // Hide all pages
+                const pages = ['home-page', 'login-page', 'dashboard-page', 'booking-page', 'cart-page'];
+                pages.forEach(page => {
+                    const element = document.getElementById(page);
+                    if (element) element.classList.add('hidden');
+                });
+
+                // Show requested page
+                const targetPage = document.getElementById(pageName + '-page');
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                    appState.currentPage = pageName;
+                }
+
+                // Update navbar
+                updateNavbar();
+            }
+
+            function updateNavbar() {
+                const navLinks = document.querySelectorAll('nav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-saffron-600', 'font-semibold');
+                    link.classList.add('text-gray-700');
+                });
+                
+                // Highlight current page
+                const currentLink = document.querySelector(`[data-page="${appState.currentPage}"]`);
+                if (currentLink) {
+                    currentLink.classList.remove('text-gray-700');
+                    currentLink.classList.add('text-saffron-600', 'font-semibold');
+                }
+            }
+
+            // Mobile menu toggle
+            mobileMenuBtn?.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Navigation handlers
+            document.addEventListener('click', function(e) {
+                const target = e.target;
+                
+                // Page navigation
+                if (target.hasAttribute('data-page')) {
+                    e.preventDefault();
+                    const page = target.getAttribute('data-page');
+                    
+                    // Check if dashboard needs authentication
+                    if (page === 'dashboard' && !appState.currentUser) {
+                        showPage('login');
+                    } else {
+                        showPage(page);
+                    }
+                    
+                    // Close mobile menu
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Pooja booking
+                if (target.hasAttribute('data-pooja')) {
+                    e.preventDefault();
+                    const poojaType = target.getAttribute('data-pooja');
+                    // Store selected pooja and navigate to booking
+                    appState.selectedPooja = poojaType;
+                    showPage('booking');
+                }
+                
+                // Cart actions
+                if (target.hasAttribute('data-kit-id')) {
+                    e.preventDefault();
+                    const kitId = target.getAttribute('data-kit-id');
+                    // Add to cart logic would go here
+                    console.log('Added to cart:', kitId);
+                    // Show cart page
+                    showPage('cart');
+                }
+            });
+
+            // Dashboard tab switching
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('dashboard-tab')) {
+                    const tabName = e.target.getAttribute('data-tab');
+                    
+                    // Update tab styles
+                    document.querySelectorAll('.dashboard-tab').forEach(tab => {
+                        tab.classList.remove('border-saffron-500', 'text-saffron-600', 'active');
+                        tab.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    e.target.classList.remove('border-transparent', 'text-gray-500');
+                    e.target.classList.add('border-saffron-500', 'text-saffron-600', 'active');
+                    
+                    // Show corresponding tab content
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    const targetContent = document.getElementById(tabName + '-tab');
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                }
+            });
+
+            // Login form handling
+            const loginForm = document.getElementById('loginForm');
+            loginForm?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userName = document.getElementById('userName').value.trim();
+                
+                if (userName) {
+                    // Store user in localStorage and app state
+                    appState.currentUser = { name: userName };
+                    localStorage.setItem('poojaPathUser', JSON.stringify(appState.currentUser));
+                    
+                    // Update welcome message
+                    const welcomeElement = document.getElementById('welcomeUserName');
+                    if (welcomeElement) {
+                        welcomeElement.textContent = userName;
+                    }
+                    
+                    // Navigate to dashboard
+                    showPage('dashboard');
+                }
+            });
+
+            // Booking form handling
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement booking form validation and submission
+                console.log('Booking submitted');
+                // Navigate back to dashboard
+                showPage('dashboard');
+            });
+
+            // Contact form handling
+            document.addEventListener('submit', function(e) {
+                if (e.target.closest('#contact')) {
+                    e.preventDefault();
+                    // TODO: Implement contact form submission
+                    console.log('Contact form submitted');
+                    alert('Thank you for your message. We will get back to you soon!');
+                }
+            });
+
+            // Initialize app
+            function initApp() {
+                // Check for stored user session
+                const storedUser = localStorage.getItem('poojaPathUser');
+                if (storedUser) {
+                    appState.currentUser = JSON.parse(storedUser);
+                    const welcomeElement = document.getElementById('welcomeUserName');
+                    if (welcomeElement && appState.currentUser) {
+                        welcomeElement.textContent = appState.currentUser.name;
+                    }
+                }
+                
+                // Set minimum date for booking form
+                const dateInput = document.getElementById('poojaDate');
+                if (dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.setAttribute('min', today);
+                }
+                
+                // Show initial page
+                showPage('home');
+            }
+
+            // Start the app
+            initApp();
+        })();
+    </script>
+</body>
+</html>
